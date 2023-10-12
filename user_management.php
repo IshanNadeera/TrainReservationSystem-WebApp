@@ -1,8 +1,16 @@
 <?php
 
-session_start();
+    include('config.php');
+    session_start();
 
-$userRole = $_SESSION['role'];
+    $userRole = $_SESSION['role'];
+
+    // Check if a session variable is set
+    if (!isset($_SESSION['id'])) {
+        // Redirect to the login page
+        header('Location: index.php');
+        exit;
+    }
 
 ?>
 
@@ -106,6 +114,8 @@ $userRole = $_SESSION['role'];
 
 <script>
 
+    var apiUrl = "<?php echo MY_API_URL; ?>";
+
     $(document).ready( function () {
         $('#myTable').DataTable();
         getAllUsers();
@@ -116,7 +126,7 @@ $userRole = $_SESSION['role'];
     function getAllUsers(){
 
         $.ajax({
-            url: "https://localhost:7001/api/User/",
+            url: apiUrl + "User/",
             type: "GET",
             contentType: "application/json",
             success: function(response) {
@@ -216,7 +226,7 @@ $userRole = $_SESSION['role'];
 
                 $.ajax({
 
-                    url: 'https://localhost:7001/api/User/update',
+                    url: apiUrl + 'User/update',
                     type: 'PUT',
                     contentType: 'application/json',
                     dataType: 'json',

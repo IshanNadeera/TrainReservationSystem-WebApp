@@ -1,3 +1,17 @@
+<?php
+
+    include('config.php');
+    session_start();
+
+    // Check if a session variable is set
+    if (!isset($_SESSION['id'])) {
+        // Redirect to the login page
+        header('Location: index.php');
+        exit;
+    }
+
+?>
+
 <?php include 'common/header.php';?>
 
 <link href="assets/css/register.css" rel="stylesheet">
@@ -10,7 +24,7 @@
 
     <?php include 'common/sidebar.php';?>
 
-    <div class="container">
+    <div class="container" style="margin-left: 500px;">
 
         <div class="form-register">
             <div class="text-center mb-4">
@@ -19,7 +33,9 @@
                 <h3>Register New User</h3>
             </div>
 
+            <br>
             <hr class="mb-4">
+            <br>
 
             <?php if (isset($error)) { ?>
                 <div class="alert alert-danger mb-4 " role="alert">
@@ -79,6 +95,8 @@
                 </div>
             </div>
 
+            <br>
+
             <button id="register_btn" class="btn btn-lg btn-primary btn-block">Add new user</button>
 
             <br>
@@ -90,6 +108,9 @@
 </body>
 
 <script>
+
+    var apiUrl = "<?php echo MY_API_URL; ?>";
+
     document.addEventListener('DOMContentLoaded', function () {
         const togglePasswordIcons = document.querySelectorAll('.toggle-password');
 
@@ -149,7 +170,7 @@
 
                 // Make an AJAX POST request to your API or server endpoint
                 $.ajax({
-                    url: "https://localhost:7001/api/User/register",
+                    url: apiUrl + "User/register",
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(data),

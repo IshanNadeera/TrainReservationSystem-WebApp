@@ -1,6 +1,14 @@
 <?php
 
-session_start();
+    include('config.php');
+    session_start();
+
+    // Check if a session variable is set
+    if (!isset($_SESSION['id'])) {
+        // Redirect to the login page
+        header('Location: index.php');
+        exit;
+    }
 
 ?>
 
@@ -22,35 +30,24 @@ session_start();
             <h1 style="background-color:#000; color:#fff; padding: 10px 15px; border-radius:10px;">Dashboard</h1>
         </div>
 
-        <!-- <div class= "container_area">
-            <button class="add-btn"><a href="add_new_booking.php">Add Booking</a></button>
+        <div style="margin-left: 250px; margin-bottom: 50px;">
+            <h1 style="font-size: 65px; margin-top: 50px; color: #007bff; margin-left: 230px;">Railway Reservation System Admin Panel</h1>
+            <h2 style="font-size: 40px; margin-top: 10px; margin-left: 350px;">Efficient Railway Management at Your Fingertips!</h2>
         </div>
 
-        <div class= "container_table_area">
-            <table id="myTable" class="display">
-                <thead>
-                    <tr>
-                        <th>NIC</th>
-                        <th>Train Name</th>
-                        <th>Booking Date</th>
-                        <th>Name</th>
-                        <th>No of Tickets</th>
-                        <th>Reservation Date</th>
-                        <th>Status</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                </tbody>
-            </table>
-        </div> -->
+        <div>
+            <img src="assets/images/train.jpeg" alt="Image" style="width: 86.5%; height: 700px; margin-left: 250px;">
+        </div>
+
+        
         
     </div>
     
 </body>
 
 <script>
+
+    var apiUrl = "<?php echo MY_API_URL; ?>";
 
 </script>
 

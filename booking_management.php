@@ -1,6 +1,14 @@
 <?php
 
-session_start();
+    include('config.php');
+    session_start();
+
+    // Check if a session variable is set
+    if (!isset($_SESSION['id'])) {
+        // Redirect to the login page
+        header('Location: index.php');
+        exit;
+    }
 
 ?>
 
@@ -107,6 +115,8 @@ session_start();
 
 <script>
 
+    var apiUrl = "<?php echo MY_API_URL; ?>";
+
     $(document).ready( function () {
         $('#myTable').DataTable();
         getAllBookings();
@@ -115,7 +125,7 @@ session_start();
     function getAllBookings(){
 
         $.ajax({
-            url: "https://localhost:7001/api/Booking/",
+            url: apiUrl + "Booking/",
             type: "GET",
             contentType: "application/json",
             success: function(response) {
@@ -244,7 +254,7 @@ session_start();
 
                     $.ajax({
 
-                        url: 'https://localhost:7001/api/Booking/update',
+                        url: apiUrl + 'Booking/update',
                         type: 'PUT',
                         contentType: 'application/json',
                         dataType: 'json',

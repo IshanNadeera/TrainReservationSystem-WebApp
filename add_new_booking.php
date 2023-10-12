@@ -1,3 +1,17 @@
+<?php
+
+    include('config.php');
+    session_start();
+
+    // Check if a session variable is set
+    if (!isset($_SESSION['id'])) {
+        // Redirect to the login page
+        header('Location: index.php');
+        exit;
+    }
+
+?>
+
 <?php include 'common/header.php';?>
 
 <link href="assets/css/addBooking.css" rel="stylesheet">
@@ -10,7 +24,7 @@
 
     <?php include 'common/sidebar.php';?>
 
-    <div class="container">
+    <div class="container" style="margin-left: 500px;">
 
         <div class="form-register">
             <div class="text-center mb-4">
@@ -19,7 +33,9 @@
                 <h3>Add New Booking</h3>
             </div>
 
+            <br>
             <hr class="mb-4">
+            <br>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -67,6 +83,7 @@
 <script>
 
     var trains;
+    var apiUrl = "<?php echo MY_API_URL; ?>";
 
     $(document).ready(function() {
         getAllTrains();
@@ -75,7 +92,7 @@
     function getAllTrains(){
 
         $.ajax({
-            url: 'https://localhost:7001/api/Train/',
+            url: apiUrl + 'Train/',
             type: 'GET',
             contentType: "application/json",
             success: function (data) {
@@ -169,7 +186,7 @@
 
             // Make an AJAX POST request to your API or server endpoint
             $.ajax({
-                url: "https://localhost:7001/api/Booking/addBooking",
+                url: apiUrl + "Booking/addBooking",
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify(data),
