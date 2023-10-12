@@ -1,0 +1,19 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.form-register {
+    width: 100%;
+    padding: 15px;
+}
+
+.logo {
+    border-radius: 20px;
+}
+
+.spanTxt {
+    color: #007bff;
+    cursor: pointer;
+}

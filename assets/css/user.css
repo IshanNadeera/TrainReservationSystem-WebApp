@@ -1,0 +1,40 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+    padding-top: 20px;
+}
+
+.container_header{
+    margin-top: 10px;
+    margin-left: 250px;
+}
+
+.container_area{
+    margin-top: 30px;
+    height: 30px;
+}
+
+.add-btn{
+    background: #007bff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    float: right;
+    outline: none;
+    border: none;
+}
+
+.add-btn a{
+    color: #fff;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+.container_table_area{
+    margin-top: 50px;
+    margin-left: 250px;
+}
