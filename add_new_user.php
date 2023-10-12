@@ -1,3 +1,16 @@
+<?php
+
+    session_start();
+
+    // Check if a session variable is set
+    if (!isset($_SESSION['id'])) {
+        // Redirect to the login page
+        header('Location: index.php');
+        exit;
+    }
+
+?>
+
 <?php include 'common/header.php';?>
 
 <link href="assets/css/register.css" rel="stylesheet">
