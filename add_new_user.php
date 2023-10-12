@@ -23,7 +23,7 @@
 
     <?php include 'common/sidebar.php';?>
 
-    <div class="container">
+    <div class="container" style="margin-left: 500px;">
 
         <div class="form-register">
             <div class="text-center mb-4">
@@ -32,7 +32,9 @@
                 <h3>Register New User</h3>
             </div>
 
+            <br>
             <hr class="mb-4">
+            <br>
 
             <?php if (isset($error)) { ?>
                 <div class="alert alert-danger mb-4 " role="alert">
@@ -91,6 +93,8 @@
                     </div>
                 </div>
             </div>
+
+            <br>
 
             <button id="register_btn" class="btn btn-lg btn-primary btn-block">Add new user</button>
 

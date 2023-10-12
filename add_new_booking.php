@@ -23,7 +23,7 @@
 
     <?php include 'common/sidebar.php';?>
 
-    <div class="container">
+    <div class="container" style="margin-left: 500px;">
 
         <div class="form-register">
             <div class="text-center mb-4">
@@ -32,7 +32,9 @@
                 <h3>Add New Booking</h3>
             </div>
 
+            <br>
             <hr class="mb-4">
+            <br>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
