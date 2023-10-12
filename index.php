@@ -1,4 +1,5 @@
 <?php include 'common/header.php';?>
+<?php include 'config.php';?>
 
 <link href="assets/css/login.css" rel="stylesheet">
 
@@ -68,6 +69,8 @@
 
 <script>
 
+    var apiUrl = "<?php echo MY_API_URL; ?>";
+
     $(document).ready(function() {
 
         //Handle button click
@@ -98,7 +101,7 @@
 
                 // Make an AJAX POST request to your API or server endpoint
                 $.ajax({
-                    url: "https://localhost:7001/api/User/login",
+                    url: apiUrl + "User/login",
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(data),

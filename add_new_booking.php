@@ -1,5 +1,6 @@
 <?php
 
+    include('config.php');
     session_start();
 
     // Check if a session variable is set
@@ -82,6 +83,7 @@
 <script>
 
     var trains;
+    var apiUrl = "<?php echo MY_API_URL; ?>";
 
     $(document).ready(function() {
         getAllTrains();
@@ -90,7 +92,7 @@
     function getAllTrains(){
 
         $.ajax({
-            url: 'https://localhost:7001/api/Train/',
+            url: apiUrl + 'Train/',
             type: 'GET',
             contentType: "application/json",
             success: function (data) {
@@ -184,7 +186,7 @@
 
             // Make an AJAX POST request to your API or server endpoint
             $.ajax({
-                url: "https://localhost:7001/api/Booking/addBooking",
+                url: apiUrl + "Booking/addBooking",
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify(data),

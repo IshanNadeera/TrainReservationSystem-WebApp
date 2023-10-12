@@ -1,5 +1,6 @@
 <?php
 
+    include('config.php');
     session_start();
 
     // Check if a session variable is set
@@ -107,6 +108,9 @@
 </body>
 
 <script>
+
+    var apiUrl = "<?php echo MY_API_URL; ?>";
+
     document.addEventListener('DOMContentLoaded', function () {
         const togglePasswordIcons = document.querySelectorAll('.toggle-password');
 
@@ -166,7 +170,7 @@
 
                 // Make an AJAX POST request to your API or server endpoint
                 $.ajax({
-                    url: "https://localhost:7001/api/User/register",
+                    url: apiUrl + "User/register",
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(data),

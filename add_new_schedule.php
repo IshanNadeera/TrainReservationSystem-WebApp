@@ -1,5 +1,6 @@
 <?php
 
+    include('config.php');
     session_start();
 
     // Check if a session variable is set
@@ -103,6 +104,8 @@
 
 <script>
 
+    var apiUrl = "<?php echo MY_API_URL; ?>";
+
     $(document).ready(function() {
         
         //Handle button click
@@ -140,7 +143,7 @@
 
                 // Make an AJAX POST request to your API or server endpoint
                 $.ajax({
-                    url: "https://localhost:7001/api/Train/addSchedule",
+                    url: apiUrl + "Train/addSchedule",
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(data),

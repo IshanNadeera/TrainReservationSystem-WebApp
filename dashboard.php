@@ -1,13 +1,14 @@
 <?php
 
-session_start();
+    include('config.php');
+    session_start();
 
-// Check if a session variable is set
-if (!isset($_SESSION['id'])) {
-    // Redirect to the login page
-    header('Location: index.php');
-    exit;
-}
+    // Check if a session variable is set
+    if (!isset($_SESSION['id'])) {
+        // Redirect to the login page
+        header('Location: index.php');
+        exit;
+    }
 
 ?>
 
@@ -45,6 +46,8 @@ if (!isset($_SESSION['id'])) {
 </body>
 
 <script>
+
+    var apiUrl = "<?php echo MY_API_URL; ?>";
 
 </script>
 

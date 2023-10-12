@@ -1,13 +1,14 @@
 <?php
 
-session_start();
+    include('config.php');
+    session_start();
 
-// Check if a session variable is set
-if (!isset($_SESSION['id'])) {
-    // Redirect to the login page
-    header('Location: index.php');
-    exit;
-}
+    // Check if a session variable is set
+    if (!isset($_SESSION['id'])) {
+        // Redirect to the login page
+        header('Location: index.php');
+        exit;
+    }
 
 ?>
 
@@ -119,6 +120,8 @@ if (!isset($_SESSION['id'])) {
 
 <script>
 
+    var apiUrl = "<?php echo MY_API_URL; ?>";
+
     $(document).ready( function () {
         $('#myTable').DataTable();
         getAllTrains();
@@ -127,7 +130,7 @@ if (!isset($_SESSION['id'])) {
     function getAllTrains(){
 
         $.ajax({
-            url: "https://localhost:7001/api/Train/",
+            url: apiUrl + "Train/",
             type: "GET",
             contentType: "application/json",
             success: function(response) {
@@ -246,7 +249,7 @@ if (!isset($_SESSION['id'])) {
 
                 $.ajax({
 
-                    url: 'https://localhost:7001/api/Train/update',
+                    url: apiUrl + 'Train/update',
                     type: 'PUT',
                     contentType: 'application/json',
                     dataType: 'json',
