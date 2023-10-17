@@ -171,6 +171,12 @@
                 title: 'Oops...',
                 text: 'Input Fields Cannot be empty!',
             });
+        }else if(nooftickets > 4){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Cannot book more than 04 tickets!',
+            });
         }else{
 
             // Create a JSON object with the input data

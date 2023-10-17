@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+// session_start();
 
 $fname = $_SESSION['fname'];
 $lname = $_SESSION['lname'];
