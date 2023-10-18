@@ -229,6 +229,12 @@
                 title: 'Oops...',
                 text: "Can't update reservation!",
             });
+        }else if(nooftickets > 4){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Cannot book more than 04 tickets!',
+            });
         }else{
             // Display an popup message to ask to update
             Swal.fire({
