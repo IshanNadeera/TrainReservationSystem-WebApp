@@ -161,7 +161,7 @@
                     "fname": fname,
                     "lname": lname,
                     "nic": nic,
-                    "contactno": contactno,
+                    "phone_no": contactno,
                     "email": email,
                     "password": password,
                     "status": 'active',
@@ -180,10 +180,10 @@
                         Swal.fire({
                             icon: 'success',
                             title: 'Success...',
-                            text: 'Registered Successfully!. Click OK to Login',
+                            text: 'Registered Successfully!.',
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                window.location.href = 'index.php';
+                                window.location.href = 'user_management.php';
                             }
                         });
                     },
